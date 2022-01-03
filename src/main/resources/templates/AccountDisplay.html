@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<!-- Account Setup/Creation Page -->
+<!-- @author Namit Prakash Dadlani -->
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Accounts Homepage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="text-right">Welcome</h1>
+        </div>
+        <div class="col-md-6">
+            <h1 class="text-left" th:text="${accountUsername}">Default User</h1>
+        </div>
+    </div>
+    <div class="border border-secondary">
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="text-right">Your Account Number:</h3>
+        </div>
+        <div class="col-md-6">
+            <h3 class="text-left" th:text="${accountNumber}">Default User</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="text-right">Your Account Balance:</h3>
+        </div>
+        <div class="col-md-6">
+            <h3 class="text-left" th:text="${accountBalance}">Default User</h3>
+        </div>
+    </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="text-center">
+            <br>
+            <br>
+            <form class="form" method="GET" action="/accounts/home">
+                <button type="submit" class="btn btn-success btn-md" th:name="accountNumber" th:value="${accountNumber}">
+                    Proceed with this account
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

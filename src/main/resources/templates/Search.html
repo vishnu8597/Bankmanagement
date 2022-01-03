@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div role="navigation">
+    <div class="navbar navbar-inverse">
+        <a class="navbar-brand" href="/welcome">Home</a>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/Login">User Login</a></li>
+                <li><a href="/Register">Register User</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container text-center">
+    <h3>Branch Search</h3>
+    <hr>
+    <form action="/branchsearch" method="POST">
+        <label for="branchname">Select Branch</label>
+        <select id="branchname" name="branchname">
+            <option value="Cape Breton">Cape Breton</option>
+            <option value="Sydney">Sydney</option>
+            <option value="Halifax">Halifax</option>
+            <option value="Yarmouth">Yarmouth</option>
+            <option value="Darthmouth">Darthmouth</option>
+            <option value="Truro">Truro</option>
+            <option value="Amherst">Amherst</option>
+            <option value="Pictou">Pictou</option>
+            <option value="Digby">Digby</option>
+            <option value="Northumberland">Northumberland</option>
+        </select>
+        <input type="submit" value="Submit"/>
+        </br></br>
+    </form>
+</div>
+<p>IFSC Code:</p>
+<p th:text="${ifsc}">
+</p>
+
+<script src="static/js/jquery-1.11.1.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+</body>
+</html>

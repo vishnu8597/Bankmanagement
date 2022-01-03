@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/makeTransaction}" method="post">
+  Amount : <input type="text" name="amount" required></input>
+  <!--    Password : <input type="password" name="password"></input>-->
+  <br> <input type="submit" value="transaction" />
+  <p th:inline="text"> [[${balance}]]</p>
+
+</form>
+</body>
+
+</html>

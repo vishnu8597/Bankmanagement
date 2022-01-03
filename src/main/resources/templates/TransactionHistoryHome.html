@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<!-- Transaction History Page -->
+<!-- @author Namit Prakash Dadlani -->
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Accounts Homepage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="text-left" th:text="${greetingMessage}">Default Message</h4>
+            <h3>Transaction History Dashboard</h3>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-2">
+            <form class="form" action="/TransactionHistory/showAll">
+                <button type="submit" class="btn btn-success btn-md">
+                    Show All Transactions
+                </button>
+            </form>
+        </div>
+        <div class="col-md-10">
+            <form class="form" action="/TransactionHistory/showWithinRange">
+                Begin Date:<input type="date" id="begin" name="begin-date" value="2021-01-01">
+                End Date:<input type="date" id="end" name="end-date" value="2021-12-31">
+                <button type="submit" class="btn btn-success btn-md">
+                    Show Transactions Within Dates
+                </button>
+
+            </form>
+        </div>
+    </div>
+    <div class="row" style="margin-top:20px;">
+        <div class="col-md-10">
+            <p th:text="${descriptionMessage}"></p>
+        </div>
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-10">
+            <p th:text="${highestValues}"></p>
+        </div>
+    </div>
+    <table class="table" style="margin-top: 25px;">
+        <div th:if="${displayTransactions}!=null">
+        <tr>
+            <th>ID</th>
+            <th>Time</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Effective Balance</th>
+        </tr>
+        </div>
+        <div th:each="transaction : ${displayTransactions}">
+        <tr>
+            <td th:text="${transaction.id}">ID</p></td>
+            <th th:text="${transaction.transactionTimestamp}">Time</th>
+            <th th:text="${transaction.mode}">Type</th>
+            <th th:text="${transaction.amount}">Amount</th>
+            <th th:text="${transaction.balance}">Effective Balance</th>
+        </tr>
+        </div>
+    </table>
+    <p th:text="${bodyMessage}"></p>
+
+</div>
+
+</body>
+</html>

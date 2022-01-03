@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div role="navigation">
+    <div class="navbar navbar-inverse">
+        <a class="navbar-brand" href="/welcome">Home</a>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/Login">User Login</a></li>
+                <li><a href="/Register">Register User</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center">
+    <h3>Ifsc Search</h3>
+    <hr>
+
+    <form action="/branches" class="form-horizontal" method="POST">
+        <div class="form-group">
+            <label class="control-label col-md-3">IFSC Code</label>
+            <div class="col-md-7">
+                <input class="form-control" name="ifsccode" required type="text"/>
+            </div>
+        </div>
+        <input type="submit" value="Search"/>
+    </form>
+</div>
+<p>Branch Name:</p>
+<p th:text="${branchname}">
+</p>
+</br>
+<p>Address:</p>
+<p th:text="${address}">
+</p>
+</br>
+<p>Phone Number:</p>
+<p th:text="${phonenumber}">
+</p>
+</br>
+
+<script src="static/js/jquery-1.11.1.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+</body>
+</html>
